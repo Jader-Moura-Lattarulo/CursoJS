@@ -1,3 +1,14 @@
+/*
+ * Não podemos criar variaveis com palavras reservadas;
+ * Variaveis precisam ter nomes significativos;
+ * Não podemos começar o nome de uma variavel com um número;
+ * Não podem conter espaços ou traços;
+ * Utilizamos camelCase;
+ * Case-sensitive;
+ * Não podemos redeclarar variaveis;
+ * NÃO UTILIZE VAR, UTILIZE LET.
+ */
+
 let nomeHomem = `João`; //string
 let timeDeFutebol; //variável declarada, mas não inicializada
 
