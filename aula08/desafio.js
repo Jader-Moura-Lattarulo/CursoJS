@@ -6,7 +6,7 @@ let varD;
 /*varD = varA;
  *varA = varB;
  *varB = varC;
- *varC = varD;
+ *varC = varD; 
 */
 
 [varA, varB, varC] = [varB, varC, varA]
