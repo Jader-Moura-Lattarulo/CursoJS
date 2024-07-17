@@ -8,7 +8,6 @@ const theWordsOfName = completeName.split(" ")
 const upperName = completeName.toUpperCase();
 const lowerName = completeName.toLowerCase();
 
-
 document.body.innerHTML += `O seu nome é: ${completeName}. <br/>` ;
 document.body.innerHTML += `Seu nome tem ${lenghtName} letras.<br/>`;
 document.body.innerHTML += `A segunda letra do seu nome é: ${secoundLetterOfName}. <br/>`;
