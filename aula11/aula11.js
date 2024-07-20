@@ -1,3 +1,6 @@
+//Em JavaScript temos um tipo de número que é chamado "Infinity" que permite que façamos divisões por 0
+//Infinity retorna verdadeiro.
+
 let num1 = 9.43;
 let num2 = Math.floor(num1); //Arredonda para baixo
 num2 = Math.ceil(num1); //Arredonda para cima
