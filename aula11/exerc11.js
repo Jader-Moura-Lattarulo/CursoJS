@@ -46,9 +46,10 @@ const roundedUp = roundingUp(number);
 const twoDecimalPlaced = twoDecimalPlaces(number);
 
 titleNumber.innerHTML = number;
-text.innerHTML = `<p>A raiz quadrada de ${number} é: ${rooting} </p>
-                  <p>${number} é inteiro? ${int}</p>
-                  <p>${number} é NaN? ${notAN}</p>
-                  <p>${number} Arredondado para baixo fica: ${roundedDown}</p>
-                  <p>${number} Arredondado para cima fica: ${roundedUp}</p>
-                  <p>${number} com 2 casas decimais fica: ${twoDecimalPlaced}</p>`;
+text.innerHTML = '';
+text.innerHTML = `<p>A raiz quadrada de ${number} é: ${rooting}.</p>
+                  <p>${number} é inteiro? ${int}.</p>
+                  <p>${number} é NaN? ${notAN}.</p>
+                  <p>${number} Arredondado para baixo fica: ${roundedDown}.</p>
+                  <p>${number} Arredondado para cima fica: ${roundedUp}.</p>
+                  <p>${number} com 2 casas decimais fica: ${twoDecimalPlaced}.</p>`;
