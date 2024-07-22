@@ -8,25 +8,42 @@ function myScope(){
         const weight = parseFloat(weightInput.value);
         const height = parseFloat(heightInput.value);
 
-        if (!isNaN(weight) && !isNaN(height) && height > 0) {
+        if(isNaN(weight) && isNaN(height)){
+            resultDisplay.innerHTML = "IMC: Não foi possível calcular.<br>Peso e altura estão vazios.";
+
+        } else if (isNaN(weight)){
+            resultDisplay.innerHTML = "O peso está vazio.";
+
+        } else if (isNaN(height)){
+            resultDisplay.innerHTML = "A altura está vazia."
+
+        } else if (weight <= 0.240 || weight >= 650 && height <= 0.20 || height >= 2.85){
+            resultDisplay.innerHTML = "O peso e a altura são iválidos."
+
+        } else if (weight <= 0.240 || weight >= 650){
+            resultDisplay.innerHTML = "O peso é inválido."
+
+        } else if (height <= 0.20 || height >= 2.85) {
+            resultDisplay.innerHTML = "A altura é inválida."
+
+        } else if (!isNaN(weight) && !isNaN(height) && height > 0) {
+
             const imc = weight/Math.pow(height, 2);
 
             if(imc <= 18.5){
-                resultDisplay.textContent = `IMC: ${imc.toFixed(2)} - Abaixo do peso`;
+                resultDisplay.innerHTML = `IMC: ${imc.toFixed(2)} - Abaixo do peso`;
             } else if (imc <= 24.9) {
-                resultDisplay.textContent = `IMC: ${imc.toFixed(2)} - Peso normal`;
+                resultDisplay.innerHTML = `IMC: ${imc.toFixed(2)} - Peso normal`;
             } else if (imc <= 29.9) {
-                resultDisplay.textContent = `IMC: ${imc.toFixed(2)} - Sobrepeso`;
+                resultDisplay.innerHTML = `IMC: ${imc.toFixed(2)} - Sobrepeso`;
             } else if (imc <= 34.9) {
-                resultDisplay.textContent = `IMC: ${imc.toFixed(2)} - Obesidade grau 1`;
+                resultDisplay.innerHTML = `IMC: ${imc.toFixed(2)} - Obesidade grau 1`;
             } else if (imc <= 39.9) {
-                resultDisplay.textContent = `IMC: ${imc.toFixed(2)} - Obesidade grau 2`;
+                resultDisplay.innerHTML = `IMC: ${imc.toFixed(2)} - Obesidade grau 2`;
             } else {
-                resultDisplay.textContent = `IMC: ${imc.toFixed(2)} - Obesidade grau 3`;
+                resultDisplay.innerHTML = `IMC: ${imc.toFixed(2)} - Obesidade grau 3`;
             }
-        } else {
-            resultDisplay.textContent = "IMC: Não foi possível calcular";
-        }    
+        }
     }  
     form.addEventListener('submit', function(event){
         event.preventDefault();
