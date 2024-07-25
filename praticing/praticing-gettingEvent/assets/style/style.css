@@ -3,6 +3,11 @@
     src: url('/praticing/praticing-gettingEvent/assets/fonts/Saiyan-Sans.ttf') format('opentype');
 }
 
+@font-face {
+    font-family: 'GROBOLD';
+    src: url('/praticing/praticing-gettingEvent/assets/fonts/GROBOLD.ttf') format('opentype');
+}
+
 * {
     font-family: 'Saiyan-Sans';
     font-size: 2rem;
@@ -32,4 +37,8 @@
 .input,
 .btn {
     width: 50%;
+}
+
+.input {
+    font-family: 'GROBOLD';
 }
