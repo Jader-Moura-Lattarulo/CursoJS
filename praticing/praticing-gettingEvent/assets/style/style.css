@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'Saiyan-Sans';
+    src: url('/praticing/praticing-gettingEvent/assets/fonts/Saiyan-Sans.ttf') format('opentype');
+}
+
+* {
+    font-family: 'Saiyan-Sans';
+    font-size: 2rem;
+    color: orange;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 50px);
+    background-color: orangered;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(56, 56, 192);
+    width: 550px;
+    height: 350px;
+    border-radius: 16px;
+    gap: 8px;
+}
+
+.input,
+.btn {
+    width: 50%;
+}
