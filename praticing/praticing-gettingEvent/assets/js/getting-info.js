@@ -12,6 +12,8 @@ function kiMeter() {
             setResult('ki inválido');
             return;
         }
+
+        
     });
 
     function paragraphCreate(){
@@ -22,8 +24,10 @@ function kiMeter() {
     function setResult(msg){
         const result = document.querySelector('#result');
         result.innerHTML = "";
+        
         const paragraph = paragraphCreate();
-        result.appendChild(paragraph);
+        paragraph.innerHTML = msg;
+        result.appendChild(paragraph);       
     }
 
 }
