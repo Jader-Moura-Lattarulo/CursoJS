@@ -4,15 +4,25 @@ function kiMeter() {
 
     form.addEventListener('submit', function(event){
         event.preventDefault();
-        console.log('Evento barrado');
-        setResult('bla bla bla');
+        const inputKi = event.target.querySelector('#ki');
+
+        const ki = Number(inputKi.value);
+        
+        if(!ki){
+            setResult('ki inválido');
+            return;
+        }
     });
 
+    function paragraphCreate(){
+        const paragraph = document.createElement('p');
+        return paragraph;
+    }
+    
     function setResult(msg){
         const result = document.querySelector('#result');
         result.innerHTML = "";
-        const paragraph = document.createElement('p');
-        paragraph.innerHTML = "Seu inceto";
+        const paragraph = paragraphCreate();
         result.appendChild(paragraph);
     }
 
