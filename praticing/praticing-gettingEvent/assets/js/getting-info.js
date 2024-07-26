@@ -9,20 +9,16 @@ function kiMeter() {
         const ki = Number(inputKi.value);
         
         if(!ki){
-            setResult('ki inválido');
+            setResult('Você não deve ter ki... Não consegue nem responder essa pergunta...');
             return;
         }
-    });
 
-    /*
-     * Bulma – 12
-     * Mestre Kame – 139
-     * Kuririn – 1.770
-     * Yamcha – 1.480
-     * Piccolo – 3.500
-     * Mr. Popo – 1.030
-     * Goku – MAIS DE 8.000!!!
-     */
+        const levelKi = getKiLevel(ki);
+
+        const msg = `Seu ki é como o de ${levelKi}`;
+
+        setResult(msg);
+    });
 
     function getKiLevel(ki){
         //Arrey tem rage
@@ -34,7 +30,8 @@ function kiMeter() {
         if(ki >= 1480) return level[3];
         if(ki >= 1770) return level[2];
         if(ki >= 139) return level[1];
-        if(ki <= 12) return level[0];
+        if(ki >= 12) return level[0];
+        if(ki < 12) return ' um inceto';
     }
 
     function paragraphCreate(){
