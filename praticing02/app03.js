@@ -16,8 +16,18 @@ function program(){
     }
 
     let arrayOfWords = ['Jader Moura Lattarulo', 'Gabriela Floreano Centenaro'];
+    
     let concatenatedStrig = arrayOfWords.join('');
     let arrayOfLetters = concatenatedStrig.split('');
+
+    function removeEmptyChar(){
+        let charToRemove = ' ';
+
+        while (arrayOfLetters.indexOf(charToRemove) !== -1) {
+            let index = array.indexOf(charToRemove);
+            array.splice(index, 1);
+        }
+    }
 
     let result = countFrequency(arrayOfLetters);
     console.log(result);
