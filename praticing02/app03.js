@@ -1,6 +1,6 @@
 function program(){
 
-    let arrayOfWords = ['Jader Moura Lattarulo Gabriela Floreano Centenaro'];
+    let arrayOfWords = ['Jader Moura Lattarulo, Gabriela Floreano Centenaro'];
     let arrayLetters;
     
     function turnToLetters(arrayOfWords){

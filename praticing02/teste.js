@@ -3,7 +3,6 @@ function program(){
     let frase = ['Jader Moura Lattarulo', 'Gabriela Floreano Centenaro'];
     let combinedFrase = frase.join("");
     let arrayLetters = combinedFrase.split("");
-    console.log(arrayLetters);
 
     arrayLetters = arrayLetters.filter(letter => letter !== " ");
 
