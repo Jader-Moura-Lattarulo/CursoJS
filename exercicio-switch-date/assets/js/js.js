@@ -1,4 +1,9 @@
 function app(){
+    
+    const todayIs = new Date();
+    const dayOfWeek = todayIs.getDay();
+
+
     function getDayOfWeek(dayOfWeek) {
         let dayOfWeekTxt;
 
@@ -7,19 +12,19 @@ function app(){
                 dayOfWeekTxt = 'Domingo';
                 return dayOfWeekTxt;
             case 1:
-                dayOfWeekTxt = 'Segunda';
+                dayOfWeekTxt = 'Segunda-feira';
                 return dayOfWeekTxt;
             case 2:
-                dayOfWeekTxt = 'Terça';
+                dayOfWeekTxt = 'Terça-feira';
                 return dayOfWeekTxt;
             case 3:
-                dayOfWeekTxt = 'Quarta';
+                dayOfWeekTxt = 'Quarta-feira';
                 return dayOfWeekTxt;
             case 4:
-                dayOfWeekTxt = 'Quinta';
+                dayOfWeekTxt = 'Quinta-feira';
                 return dayOfWeekTxt;
             case 5:
-                dayOfWeekTxt = 'Sexta';
+                dayOfWeekTxt = 'Sexta-feira';
                 return dayOfWeekTxt;
             case 6:
                 dayOfWeekTxt = 'Sábado';
@@ -30,10 +35,9 @@ function app(){
         }
     }
 
-    const todayIs = new Date();
-    const dayOfWeek = todayIs.getDay();
+    let dayOfWeekTxt = getDayOfWeek(dayOfWeek);
 
-    console.log(todayIs, dayOfWeek);
+    console.log(todayIs, dayOfWeekTxt);
 }
 
 app();
