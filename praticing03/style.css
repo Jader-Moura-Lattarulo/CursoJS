@@ -1,0 +1,26 @@
+* {
+    background-color: black;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 350px;
+    height: 250px;
+    background-color: tomato;
+}
+
+.div01,
+.div02 {
+    width: 80px;
+    height: 80px;
+}
+
+.div01 {
+    background-color: brown;
+}
+
+.div02 {
+    background-color: blue;
+}
