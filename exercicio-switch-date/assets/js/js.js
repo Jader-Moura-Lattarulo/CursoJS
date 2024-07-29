@@ -1,9 +1,9 @@
 function app(){
     
+    const resultDisplay = document.querySelector("#completeDate");
     const todayIs = new Date();
     const dayOfWeek = todayIs.getDay();
     const monthOfYear = todayIs.getMonth();
-
 
     function zeroToTheLeft(num) {
         return num >= 10 ? num : `0${num}`;
@@ -96,11 +96,17 @@ function app(){
         return `${dayOfWeekTxt}, ${day} de ${monthOfYearTxt} de ${year} ${hour}:${min}.`;
     }
 
-    let dayOfWeekTxt = getDayOfWeek(dayOfWeek);
-    let monthOfYearTxt = getMonthOfYear(monthOfYear);
-    let formatedDate = formateDate(dayOfWeekTxt, monthOfYearTxt, todayIs);
+    function pushToThePage(resultDisplay, formatedDate){
+        resultDisplay.innerHTML = formatedDate;
+        return resultDisplay; 
+    }
+
+    const dayOfWeekTxt = getDayOfWeek(dayOfWeek);
+    const monthOfYearTxt = getMonthOfYear(monthOfYear);
+    const formatedDate = formateDate(dayOfWeekTxt, monthOfYearTxt, todayIs);
 
     console.log(formatedDate);
+    pushToThePage(resultDisplay, formatedDate);
 }
 
 app();
