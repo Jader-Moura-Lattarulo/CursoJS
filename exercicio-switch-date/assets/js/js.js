@@ -35,6 +35,10 @@ function app(){
         }
     }
 
+    function setCompleteDate(dayOfWeekTxt, todayIs) {
+        
+    }
+
     let dayOfWeekTxt = getDayOfWeek(dayOfWeek);
 
     console.log(todayIs, dayOfWeekTxt);
