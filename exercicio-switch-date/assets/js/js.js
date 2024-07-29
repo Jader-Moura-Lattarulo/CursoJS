@@ -5,7 +5,7 @@ function app(){
     const monthOfYear = todayIs.getMonth();
 
 
-    function zeroAEsquerda(num) {
+    function zeroToTheLeft(num) {
         return num >= 10 ? num : `0${num}`;
     }
 
@@ -86,10 +86,21 @@ function app(){
         }
     }
 
+    function formateDate(dayOfWeekTxt, monthOfYearTxt, todayIs){
+                
+        const day = zeroToTheLeft(todayIs.getDate());
+        const year = zeroToTheLeft(todayIs.getFullYear());
+        const hour = zeroToTheLeft(todayIs.getHours());
+        const min = zeroToTheLeft(todayIs.getMinutes());
+
+        return `${dayOfWeekTxt}, ${day} de ${monthOfYearTxt} de ${year} ${hour}:${min}.`;
+    }
+
     let dayOfWeekTxt = getDayOfWeek(dayOfWeek);
     let monthOfYearTxt = getMonthOfYear(monthOfYear);
+    let formatedDate = formateDate(dayOfWeekTxt, monthOfYearTxt, todayIs);
 
-    console.log(dayOfWeekTxt, monthOfYearTxt);
+    console.log(formatedDate);
 }
 
 app();
