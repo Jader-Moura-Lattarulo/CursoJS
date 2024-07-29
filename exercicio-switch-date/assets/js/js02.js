@@ -7,7 +7,7 @@ function app(){
         timeStyle: 'short'
     };
 
-    resultDisplay.innerHTML = todayIs.toLocaleDateString('pt-BR', choices);
+    resultDisplay.innerHTML = todayIs.toLocaleString('pt-BR', choices);
 }
 
 app();
