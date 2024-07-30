@@ -5,8 +5,13 @@ function app(){
 
     const colors = [];
 
+    function getRandomNumber(){
+        let randomNumber = Math.floor(Math.random() * (max - min) + min);
+        return randomNumber
+    }
+
     function colorMixer(){
-        let randomNumber = Math.random() * (max - min) + min;
+        let randomNumber = getRandomNumber();
 
         switch (randomNumber) {
             case 1:
@@ -29,7 +34,6 @@ function app(){
                 return randomColor
         }
 
-        return Math.floor(randomColor)
     }
     
     function giveColor(){
