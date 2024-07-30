@@ -2,12 +2,17 @@ const pessoa = {
     nome: 'Jader',
     sobrenome: 'Moura',
     idade: 35,
-    endereço: {
+    endereco: { //objeto dentro de outro objeto
         rua: 'Renato Rinaldi',
         numero: 1595
     }
 };
 
-const nome = pessoa.nome;
+//const { nome = 'Não tem', sobrenome, idade } = pessoa;
 
-console.log(nome);
+//const { endereco: {rua, numero}} = pessoa;
+
+const {nome, sobrenome, ...resto} = pessoa;
+
+
+console.log(nome, sobrenome, resto);
