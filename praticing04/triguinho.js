@@ -1,5 +1,5 @@
 function app(){
-    let numberOfBalls = 3;
+    let numberOfBalls = 4;
     const max = numberOfBalls + 1;
     const min = 1;
 
@@ -41,6 +41,8 @@ function app(){
             colors.push({ball: i+1, color:colorMixer()});
         }
     }
+
+    
 
     giveColor();
     console.log(colors);
