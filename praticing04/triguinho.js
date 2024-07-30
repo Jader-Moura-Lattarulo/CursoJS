@@ -36,16 +36,30 @@ function app(){
 
     }
     
-    function giveColor(){
+    function generateColors(){
+        colors.length = 0;
         for (let i = 0; i < numberOfBalls; i++){
-            colors.push({ball: i+1, color:colorMixer()});
+            const randomNumber = getRandomNumber();
+            const color = colorMixer(randomNumber);
+            colors.push(color);
         }
     }
 
-    
+    function allColorsSame(){
+        return colors.every(color => color === colors[0]);
+    }
 
-    giveColor();
-    console.log(colors);
+    let attemptCount = 0;
+    let colorAreSame = false;
+
+    while (! colorAreSame) {
+        generateColors();
+        colorAreSame = allColorsSame();
+        attemptCount++;
+        console.log(`Tentativa ${attemptCount}: ${colors}`);
+    }
+
+    console.log(`Todas as bolas têm a cor: ${colors[0]}`);
 }
 
 app();
