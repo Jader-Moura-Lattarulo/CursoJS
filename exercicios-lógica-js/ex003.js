@@ -15,9 +15,9 @@ function app() {
     execSync('cls', {stdio: 'inherit'});
     
     function getUserInput(){
-        let userNumber;
+        let userNumber = 0;
         let userInput = userPrompt('Entre com o número entre 0 a 100: ');
-        isNumber(userInput) ? userNumber = userInput : tryNewInput(userInput);
+        isNumber(userInput) ? userNumber = Number(userInput) : tryNewInput(userInput);
         return fizzBuzz(userNumber);
     }    
     
