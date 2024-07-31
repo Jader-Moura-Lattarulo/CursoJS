@@ -33,8 +33,8 @@ function app() {
 
     function fizzBuzz(userNumber) {
         if (userNumber % 3 === 0 && userNumber % 5 === 0) return 'FizzBuzz';
-        if (userNumber % 3 === 0 && userNumber % 5 !== 0) return 'Fizz';
-        if (userNumber % 3 !== 0 && userNumber % 5 === 0) return 'Buzz';
+        if (userNumber % 3 === 0) return 'Fizz';
+        if (userNumber % 5 === 0) return 'Buzz';
         return userNumber;
     }
 
