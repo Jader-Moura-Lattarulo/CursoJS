@@ -15,21 +15,28 @@ function app() {
     execSync('cls', {stdio: 'inherit'});
     
     function getUserInput(){
+        let userNumber;
         let userInput = userPrompt('Entre com o número entre 0 a 100: ');
-        return isNumber(userInput) ? true : tryNewInput();
+        isNumber(userInput) ? userNumber = userInput : tryNewInput(userInput);
+        return fizzBuzz(userNumber);
     }    
     
     function isNumber(userInput){
         return !isNaN(userInput) && userInput.trim() !== '';
     }
 
-    function tryNewInput(){
-        log('Não é número, tente novamente.');
+    function tryNewInput(userInput){
+        userInput = userInput;
+        log(`${userInput} Não é número, tente novamente.`);
         return getUserInput();
     }
 
-    let userInput = getUserInput();
-    log(userInput);
+    function fizzBuzz(userNumber) {
+       
+    }
+
+    let numberOrWord = getUserInput();
+    log(numberOrWord);
 }
 
 app();
