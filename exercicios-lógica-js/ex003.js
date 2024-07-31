@@ -20,7 +20,7 @@ function app() {
     }    
     
     function isNumber(userInput){
-        return !isNaN(userInput);
+        return !isNaN(userInput) && userInput.trim() !== '';
     }
 
     function tryNewInput(){
