@@ -32,7 +32,15 @@ function app() {
     }
 
     function fizzBuzz(userNumber) {
-       
+       if (userNumber % 3 === 0 && userNumber % 5 === 0){
+            return 'FizzBuzz';
+       } else if (userNumber % 3 === 0 && userNumber % 5 !== 0) {
+            return 'Fizz';
+       } else if (userNumber % 3 !== 0 && userNumber % 5 === 0) {
+            return 'Buzz';
+       } else {
+            return userNumber;
+       }
     }
 
     let numberOrWord = getUserInput();
