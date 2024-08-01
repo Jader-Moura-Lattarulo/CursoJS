@@ -1,21 +1,28 @@
 function app(){
     const clock = document.querySelector('#clock');
-    const start = document.querySelector('.start');
-    const stop = document.querySelector('.stop');
-    const reset = document.querySelector('.reset');
     let seconds = 0;
     let timer;
 
-    start.addEventListener('click', function(event) {
-        startClock();
-    });
+    document.addEventListener('click', function (e) {
+       const element = e.target;
 
-    stop.addEventListener('click', function(event) {
-       alert('clicou em parar'); 
-    });
+       if (element.classList.contains('reset')) {
+           clearInterval(timer);
+           clock.classList.remove('stoped');
+           clock.innerHTML = '00:00:00';
+           seconds = 0        
+       }
 
-    reset.addEventListener('click', function(event) {
-        alert('clicou em zerar');
+       if (element.classList.contains('stop')) {
+           clearInterval(timer);
+           clock.classList.add('stoped');
+       }
+
+       if (element.classList.contains('start')) {
+           clock.classList.remove('stoped');
+           clearInterval(timer);
+           startClock();
+       }
     });
     
     function getTimeFromSeconds(seconds) {
