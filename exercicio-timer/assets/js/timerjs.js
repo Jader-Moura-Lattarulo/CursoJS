@@ -1,15 +1,38 @@
 function app(){
-    const timer = document.querySelector('#timer');
+    const clock = document.querySelector('#clock');
+    const start = document.querySelector('.start');
+    const stop = document.querySelector('.stop');
+    const reset = document.querySelector('.reset');
+    let seconds = 0;
+    let timer;
 
-    function showTime() {
-        let time = new Date();
-        
-        return time.toLocaleTimeString('pt-Br', {
-            hour12:false
+    start.addEventListener('click', function(event) {
+        startClock();
+    });
+
+    stop.addEventListener('click', function(event) {
+       alert('clicou em parar'); 
+    });
+
+    reset.addEventListener('click', function(event) {
+        alert('clicou em zerar');
+    });
+    
+    function getTimeFromSeconds(seconds) {
+        const data = new Date(seconds * 1000);
+        return data.toLocaleTimeString('pt-BR',{
+            hour12: false,
+            timeZone:'GMT'
         });
     }
 
-    timer.innerHTML = showTime();
+    function startClock(){
+            timer = setInterval(function() {
+            seconds++;
+            clock.innerHTML = getTimeFromSeconds(seconds);
+        }, 1000);
+    }
+
 }
 
 app();
