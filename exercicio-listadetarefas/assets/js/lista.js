@@ -41,6 +41,15 @@ function app(){
         createTodo(userInput.value);
     });
 
+    document.addEventListener('click', function(e){
+        const element = e.target;
+        console.log(element);
+
+        if (element.classList.contains('erase')) {
+            console.log('apagar clicado');
+        }
+    });
+
 }
 
 app();
