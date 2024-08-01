@@ -36,9 +36,12 @@ function app(){
 
         for (let todo of allTodoList) {
             let tasksList = todo.innerText;
-            tasksList = tasksList.replace('Apagar', '').trim;
+            tasksList = tasksList.replace('Apagar', '').trim();
             savedTodoList.push(tasksList);
         }
+
+        const todosJson = JSON.stringify(savedTodoList);
+        localStorage.setItem('todos', todosJson);// LocalStorage é do navegador, então pode ser utilizado em qualquer lugar do sistema.
     }
 
     userInput.addEventListener('keypress', function(e){
@@ -58,8 +61,20 @@ function app(){
 
         if (element.classList.contains('erase')) {
             element.parentElement.remove();
+            saveTasks();
         }
     });
+
+    function addSavedTodos(){
+        const todos = localStorage.getItem('todos');
+        const todoList = JSON.parse(todos);
+        
+        for( let todo of todoList) {
+            createTodo(todo);
+        }
+    }
+
+    addSavedTodos();
 
 }
 
