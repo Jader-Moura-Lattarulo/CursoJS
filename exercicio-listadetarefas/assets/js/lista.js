@@ -22,11 +22,23 @@ function app(){
         todoList.appendChild(li);
         cleanInput();
         createEraseBtn(li);
+        saveTasks();
     }
 
     function cleanInput() {
         userInput.value = '';
         userInput.focus();
+    }
+
+    function saveTasks(){
+        const allTodoList = todoList.querySelectorAll('li');
+        const savedTodoList = [];
+
+        for (let todo of allTodoList) {
+            let tasksList = todo.innerText;
+            tasksList = tasksList.replace('Apagar', '').trim;
+            savedTodoList.push(tasksList);
+        }
     }
 
     userInput.addEventListener('keypress', function(e){
@@ -43,10 +55,9 @@ function app(){
 
     document.addEventListener('click', function(e){
         const element = e.target;
-        console.log(element);
 
         if (element.classList.contains('erase')) {
-            console.log('apagar clicado');
+            element.parentElement.remove();
         }
     });
 
