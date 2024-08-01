@@ -7,12 +7,21 @@ function app(){
         const li = document.createElement('li');
         return li;
     }
+
+    function createEraseBtn(li){
+        li.innerHTML += ' ';
+        const eraseBtn = document.createElement('button');
+        eraseBtn.innerText = 'Apagar';
+        eraseBtn.setAttribute('class', 'erase');
+        li.appendChild(eraseBtn);
+    }
     
     function createTodo(txtInput){
         const li = createList();
         li.innerHTML = txtInput;
         todoList.appendChild(li);
         cleanInput();
+        createEraseBtn(li);
     }
 
     function cleanInput() {
