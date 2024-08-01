@@ -12,7 +12,20 @@ function app(){
         const li = createList();
         li.innerHTML = txtInput;
         todoList.appendChild(li);
+        cleanInput();
     }
+
+    function cleanInput() {
+        userInput.value = '';
+        userInput.focus();
+    }
+
+    userInput.addEventListener('keypress', function(e){
+        if (e.keyCode === 13) {
+            if (!userInput.value) return; //if com uma linha só não preciso de chaves.
+            createTodo(userInput.value);
+        }
+    });
 
     btnTodo.addEventListener('click', function(){
         if (!userInput.value) return; //if com uma linha só não preciso de chaves.
