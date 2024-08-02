@@ -8,8 +8,10 @@
 //Funções fabrica -> objetos
 
 function Pessoa(nome, sobrenome) {
+    //Atributos ou métodos privados
     const ID = 12345;
-    
+
+    //Atributos ou métodos públicos
     this.nome = nome;
     this.sobrenome = sobrenome;
 
