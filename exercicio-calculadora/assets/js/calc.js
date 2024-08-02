@@ -24,7 +24,7 @@ function app(){
                 let conta = this.display.value;
 
                 try {
-                    conta = eval(conta);
+                    conta = eval(conta); // eval tenta ler tudo o que foi capturado como JavaScript, então é muito perigoso utilizar sem validações de entrada.
 
                     if(!conta) {
                         alert('Conta inválida');
@@ -66,7 +66,7 @@ function app(){
             },
 
             pressionaEnter() {
-                this.display.addEventListener('keyup', e => {
+                this.display.addEventListener('keyup', e => {//mantém o this para o objeto criado
                     if(e.keyCode === 13) {
                         this.realizaConta();
                     }
