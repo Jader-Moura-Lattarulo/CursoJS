@@ -9,6 +9,7 @@ function app(){
             //Métodos
             inicia(){
                 this.cliqueBotoes(); //this = calculadora
+                this.pressionaEnter();
             },
             
             clearDisplay() {
@@ -62,6 +63,14 @@ function app(){
 
             btnParaDisplay(valor){
                 this.display.value += valor;
+            },
+
+            pressionaEnter() {
+                this.display.addEventListener('keyup', e => {
+                    if(e.keyCode === 13) {
+                        this.realizaConta();
+                    }
+                });
             }
 
         };
