@@ -5,7 +5,6 @@ function app(){
             display: document.querySelector('.display'),
             btnClear: document.querySelector('.btn-clear'),
 
-
             //Métodos
             inicia(){
                 this.cliqueBotoes(); //this = calculadora
