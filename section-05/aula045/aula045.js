@@ -7,3 +7,13 @@ const nomes = ['Jader', 'Marly', 'Laura', 'Gabi', 'Rita'];
 const removidos = nomes.splice(0, 3);
 console.log(nomes, removidos);
 
+/**
+ * Unshift
+ * nomes.splice(2, 0, 'Luiz', 'Otávio');
+ * 
+ * pop
+ * nomes.splice(-1, 1);
+ * 
+ * shift
+ * nomes.splice(0, 1);
+ */
