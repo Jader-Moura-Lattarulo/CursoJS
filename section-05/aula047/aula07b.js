@@ -18,5 +18,6 @@ console.log(pessoasNomeMaior);
 const pessoasMais50 = pessoas.filter(valor => valor.idade >= 50);
 console.log(pessoasMais50);
 
-const pessoasNomesTerminadosA = pessoas.filter(valor => valor.nome.slice(-1) === 'a');
+//const pessoasNomesTerminadosA = pessoas.filter(valor => valor.nome.slice(-1) === 'a');
+const pessoasNomesTerminadosA = pessoas.filter(valor => valor.nome.toLowerCase().endsWith('a'));
 console.log(pessoasNomesTerminadosA);
