@@ -14,3 +14,4 @@ function Produto(preco, estoque, nome) {
 
 const p1 = new Produto( 550, 5, "Camisa-SPFC");
 console.log(p1);
+console.log(Object.keys(p1));
