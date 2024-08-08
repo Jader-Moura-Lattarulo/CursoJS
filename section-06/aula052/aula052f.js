@@ -14,7 +14,6 @@ function Pessoa(nome, sobrenome){
 //POSSO p1 = (endereço de memória) -> 'Outro valor'
 
 const p1 = new Pessoa('Jader', 'Moura');
-Object.freeze(p1);
 p1.nome = 'Jiraya';
 console.log(p1);
 
