@@ -59,4 +59,3 @@ caneca.desconto(45);
 
 console.log(camiseta);
 console.log(caneca);
-
