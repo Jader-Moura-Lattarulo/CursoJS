@@ -13,13 +13,16 @@
  * 
  * 11 - (284 % 11) = 2 (Segundo dígito dígito) - Se o digito for maior que 9 consideramos 0
  */
-let cpf = '070.987.720';
-let cpfLimpo = cpf.replace(/\D+/g, '');
-let cpfArray = Array.from(cpfLimpo);
+let entradaCpf = '070.987.720-03';
+let cpfLimpo = entradaCpf.replace(/\D+/g, '');
+
+let cpfCalc = cpfLimpo.slice(0, -2);
+
+let cpfArray = Array.from(cpfCalc);
 let cpfMultiplicado = cpfArray.map((valor, i) => valor * (10 - i));
 let cpfPrimeiroDigito = 11 - ((cpfMultiplicado.reduce((ac, val) => ac + Number(val), 0)) % 11);
 cpfPrimeiroDigito = cpfPrimeiroDigito > 9 ? 0 : cpfPrimeiroDigito;
-let cpfUmDigito = cpfLimpo + cpfPrimeiroDigito;
+let cpfUmDigito = cpfCalc + cpfPrimeiroDigito;
 
 cpfArray = Array.from(cpfUmDigito);
 cpfMultiplicado = cpfArray.map((valor, i) => valor * (11 - i));
@@ -27,6 +30,4 @@ let cpfSegundoDigito = 11 - ((cpfMultiplicado.reduce((ac, val) => ac + Number(va
 cpfSegundoDigito = cpfSegundoDigito > 9 ? 0 : cpfSegundoDigito;
 let cpfCompleto = cpfUmDigito + cpfSegundoDigito;
 
-console.log(cpfCompleto);
 
- 
