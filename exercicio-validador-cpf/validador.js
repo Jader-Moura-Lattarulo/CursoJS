@@ -30,4 +30,4 @@ let cpfSegundoDigito = 11 - ((cpfMultiplicado.reduce((ac, val) => ac + Number(va
 cpfSegundoDigito = cpfSegundoDigito > 9 ? 0 : cpfSegundoDigito;
 let cpfCompleto = cpfUmDigito + cpfSegundoDigito;
 
-
+console.log(cpfLimpo === cpfCompleto);
