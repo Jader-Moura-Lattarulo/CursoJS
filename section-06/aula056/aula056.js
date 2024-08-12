@@ -1,4 +1,4 @@
-//Prototypes
+//Prototypes -> Base para OOP
 //Construtora -> molde (classe)
 function Pessoa(nome, sobrenome) {
     this.nome = nome;
