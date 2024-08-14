@@ -13,34 +13,29 @@
  * 
  * 11 - (284 % 11) = 2 (Segundo dígito dígito) - Se o digito for maior que 9 consideramos 0
  */
+
 let entradaCpf = '070.987.720-03';
-let cpfLimpo = entradaCpf.replace(/\D+/g, '');
+let cpfLimpo = entradaCpf.replace(/\D+/g, ''); // Remove caracteres não numéricos
+let cpfCalc = cpfLimpo.slice(0, -2); // Remove os dois últimos dígitos para calcular
 
-let cpfCalc = cpfLimpo.slice(0, -2);
-
-function cpfMulti(cpfCalc) {
+function calcularDigito(cpfCalc, pesos) {
     let cpfArray = Array.from(cpfCalc);
-    let cpfMultiplicado = cpfArray.map((valor, i) => valor * ((cpfCalc.length + 1) - i));
-    addDigit(cpfMultiplicado);
+    let cpfMultiplicado = cpfArray.map((valor, i) => valor * pesos[i]);
+    let soma = cpfMultiplicado.reduce((ac, val) => ac + Number(val), 0);
+    let digito = 11 - (soma % 11);
+    return digito > 9 ? 0 : digito; // Se o dígito for maior que 9, considerar 0
 }
 
-function addDigit(cpfMultiplicado){
-    let cpfDigito = 11 - ((cpfMultiplicado.reduce((ac, val) => ac + Number(val), 0)) % 11);
-    let cpfUmDigito = cpfMultiplicado + cpfDigito;
-    digit(cpfUmDigito);
-}
-
-function digit(cpfDigito) {
-    cpfDigito = cpfDigito > 9 ? 0 : cpfDigito;
+function calcularCpfCompleto(cpfCalc) {
+    let pesosPrimeiroDigito = Array.from({ length: 9 }, (_, i) => 10 - i); // Pesos para o primeiro dígito
+    let primeiroDigito = calcularDigito(cpfCalc, pesosPrimeiroDigito);
     
+    let cpfComPrimeiroDigito = cpfCalc + primeiroDigito;
+    let pesosSegundoDigito = Array.from({ length: 10 }, (_, i) => 11 - i); // Pesos para o segundo dígito
+    let segundoDigito = calcularDigito(cpfComPrimeiroDigito, pesosSegundoDigito);
+
+    return cpfComPrimeiroDigito + segundoDigito;
 }
 
-let cpfUmDigito = cpfCalc + cpfPrimeiroDigito;
-
-cpfArray = Array.from(cpfUmDigito);
-cpfMultiplicado = cpfArray.map((valor, i) => valor * (11 - i));
-let cpfSegundoDigito = 11 - ((cpfMultiplicado.reduce((ac, val) => ac + Number(val), 0)) % 11);
-cpfSegundoDigito = cpfSegundoDigito > 9 ? 0 : cpfSegundoDigito;
-let cpfCompleto = cpfUmDigito + cpfSegundoDigito;
-
-console.log(cpfLimpo === cpfCompleto);
+let cpfCompleto = calcularCpfCompleto(cpfCalc);
+console.log(cpfLimpo === cpfCompleto); // Verifica se o CPF limpo corresponde ao CPF completo calculado
