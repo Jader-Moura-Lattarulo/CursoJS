@@ -34,11 +34,15 @@ ValidaCPF.prototype.valida = function(){
 ValidaCPF.prototype.criaDigito = function(cpfParcial){
     const cpfArray = Array.from(cpfParcial);
     let regressivo = cpfArray.length + 1;
-    const digito = cpfArray.reduce((ac, val) => {
-        ac += (ac* Number(val));
+    const total = cpfArray.reduce((ac, val) => {
+        ac += (regressivo * Number(val));
         regressivo--;
         return ac;
     }, 0);
+
+    const digito = 11 - (total % 11);
+    console.log(digito);
+    
 };
 
 const cpf = new ValidaCPF('705.484.450-52');
