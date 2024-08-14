@@ -15,27 +15,27 @@
  */
 
 let entradaCpf = '070.987.720-03';
-let cpfLimpo = entradaCpf.replace(/\D+/g, ''); // Remove caracteres não numéricos
-let cpfCalc = cpfLimpo.slice(0, -2); // Remove os dois últimos dígitos para calcular
+let cpfLimpo = entradaCpf.replace(/\D+/g, ''); 
+let cpfCalc = cpfLimpo.slice(0, -2); 
 
 function calcularDigito(cpfCalc, pesos) {
     let cpfArray = Array.from(cpfCalc);
     let cpfMultiplicado = cpfArray.map((valor, i) => valor * pesos[i]);
     let soma = cpfMultiplicado.reduce((ac, val) => ac + Number(val), 0);
     let digito = 11 - (soma % 11);
-    return digito > 9 ? 0 : digito; // Se o dígito for maior que 9, considerar 0
+    return digito > 9 ? 0 : digito;
 }
 
 function calcularCpfCompleto(cpfCalc) {
-    let pesosPrimeiroDigito = Array.from({ length: 9 }, (_, i) => 10 - i); // Pesos para o primeiro dígito
+    let pesosPrimeiroDigito = Array.from({ length: 9 }, (_, i) => 10 - i); 
     let primeiroDigito = calcularDigito(cpfCalc, pesosPrimeiroDigito);
     
     let cpfComPrimeiroDigito = cpfCalc + primeiroDigito;
-    let pesosSegundoDigito = Array.from({ length: 10 }, (_, i) => 11 - i); // Pesos para o segundo dígito
+    let pesosSegundoDigito = Array.from({ length: 10 }, (_, i) => 11 - i); 
     let segundoDigito = calcularDigito(cpfComPrimeiroDigito, pesosSegundoDigito);
 
     return cpfComPrimeiroDigito + segundoDigito;
 }
 
 let cpfCompleto = calcularCpfCompleto(cpfCalc);
-console.log(cpfLimpo === cpfCompleto); // Verifica se o CPF limpo corresponde ao CPF completo calculado
+console.log(cpfLimpo === cpfCompleto); 
