@@ -9,7 +9,7 @@ function Conta(agencia, conta, saldo){
 
 Conta.prototype.sacar = function(valor){
     if(this.saldo < valor) {
-        this.verSaldo();
+        console.log(`Saldo insuficiente: R$${this.saldo.toFixed(2)}`);
         return;
     }
 
@@ -27,8 +27,33 @@ Conta.prototype.verSaldo = function(){
     console.log(`Saldo: R$${this.saldo.toFixed(2)}`);
 };
 
-const conta01 = new Conta(1001, 213154, 10);
-console.log(conta01);
+function ContaCorrente(agencia, conta, saldo, limite){
+    Conta.call(this, agencia, conta, saldo);
+    this.limite = limite;
+}
 
-conta01.depositar(100);
-conta01.sacar(40);
+ContaCorrente.prototype = Object.create(Conta.prototype);
+ContaCorrente.prototype.constructor = ContaCorrente;
+
+ContaCorrente.prototype.sacar = function(valor){
+    if((this.saldo + this.limite) < valor) {
+        console.log(`Saldo insuficiente: R$${this.saldo.toFixed(2)}`);
+        return;
+    }
+
+    this.saldo -= valor;
+    this.verSaldo();
+};
+
+function ContaPoupanca(agencia, conta, saldo){
+    Conta.call(this, agencia, conta, saldo);
+}
+
+ContaPoupanca.prototype = Object.create(Conta.prototype);
+ContaPoupanca.prototype.constructor = ContaPoupanca;
+
+const cc = new ContaCorrente(1231, 1243513, 0, 100);
+cc.sacar(90);
+
+const cp = new ContaPoupanca(1233, 1234124, 0);
+cp.sacar(950);
