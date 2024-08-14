@@ -18,10 +18,23 @@ let cpfLimpo = entradaCpf.replace(/\D+/g, '');
 
 let cpfCalc = cpfLimpo.slice(0, -2);
 
-let cpfArray = Array.from(cpfCalc);
-let cpfMultiplicado = cpfArray.map((valor, i) => valor * (10 - i));
-let cpfPrimeiroDigito = 11 - ((cpfMultiplicado.reduce((ac, val) => ac + Number(val), 0)) % 11);
-cpfPrimeiroDigito = cpfPrimeiroDigito > 9 ? 0 : cpfPrimeiroDigito;
+function cpfMulti(cpfCalc) {
+    let cpfArray = Array.from(cpfCalc);
+    let cpfMultiplicado = cpfArray.map((valor, i) => valor * ((cpfCalc.length + 1) - i));
+    addDigit(cpfMultiplicado);
+}
+
+function addDigit(cpfMultiplicado){
+    let cpfDigito = 11 - ((cpfMultiplicado.reduce((ac, val) => ac + Number(val), 0)) % 11);
+    let cpfUmDigito = cpfMultiplicado + cpfDigito;
+    digit(cpfUmDigito);
+}
+
+function digit(cpfDigito) {
+    cpfDigito = cpfDigito > 9 ? 0 : cpfDigito;
+    
+}
+
 let cpfUmDigito = cpfCalc + cpfPrimeiroDigito;
 
 cpfArray = Array.from(cpfUmDigito);
