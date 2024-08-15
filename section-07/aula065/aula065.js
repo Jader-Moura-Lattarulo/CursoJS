@@ -13,6 +13,10 @@ class ControleRemoto {
     diminuirVolume(){
         this.volume -=2;
     }
+
+    static trocaPilha(){
+        console.log('Pilhas trocadas');        
+    }
 }
 
 const controle = new ControleRemoto('LG');
@@ -20,4 +24,5 @@ controle.aumentarVolume();
 controle.aumentarVolume();
 controle.aumentarVolume();
 
+ControleRemoto.trocaPilha();
 console.log(controle);
