@@ -17,7 +17,7 @@ class ValidaCPF {
         const cpfParcial = this.cpfLimpo.slice(0, -2);
         const digito1 = this.geraDigito(cpfParcial);
         const digito2 = this.geraDigito(cpfParcial + digito1);
-        this.novoCpf = cpfParcial + digito2;
+        this.novoCpf = cpfParcial + digito1 + digito2;
     }
 
     geraDigito(cpfParcial){
@@ -50,5 +50,4 @@ if (validacpf.valida()) {
     console.log('CPF válido');
 } else {
     console.log('CPF inválido');
-    
 }
