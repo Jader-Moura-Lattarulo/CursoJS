@@ -32,12 +32,20 @@ class DispositivoEletronico{
 //console.log(de01);
 
 class Smartphone extends DispositivoEletronico {
-    constructor(nome, cor){
+    constructor(nome, cor, modelo){
         super(nome);
         this.cor = cor;
+        this.modelo = modelo;
     }
 }
 
-const s01 = new Smartphone('iphone', 'prata');
+class Tablet extends DispositivoEletronico {
+    constructor(nome, temWifi){
+        super(nome);
+        this.temWifi = temWifi;
+    }
+}
+
+const s01 = new Smartphone('Samsung', 'prata', 'S22');
 
 console.log(s01);
