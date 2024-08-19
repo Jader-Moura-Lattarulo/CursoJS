@@ -19,10 +19,24 @@ class ValidaFormulario {
     isValid(){
         let valid = true;
 
-        for(let field of this.formulario.querySelectorAll('.validar')){
-            console.log(field);
-            
+        for(let errorText of this. formulario.querySelectorAll('.error-text')){
+            errorText.remove();
         }
+
+        for(let field of this.formulario.querySelectorAll('.validar')){
+            const label = field.previousElementSibling.innerText;
+            if(!field.value) {
+                this.createError(field, `Campo "${label}" não pode estar em branco.`);
+                valid = false;
+            }            
+        }
+    }
+
+    createError(field, msg){
+        const div = document.createElement('div');
+        div.innerHTML = msg;
+        div.classList.add('error-text');
+        field.insertAdjacentElement('afterend', div);
     }
 }
 
