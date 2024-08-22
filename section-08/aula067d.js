@@ -1,3 +1,4 @@
+//Race
 //Métodos úteis para Promises
 
 function rand(min, max) {
@@ -22,15 +23,15 @@ function esperaAi(msg, tempo) {
 
 //Promise.all Promise.race Promise.resolve Promise.reject
 const promises = [
-    'Primeiro valor', 
+    //'Primeiro valor', 
     esperaAi('Promise 1', rand(1, 3)),
     esperaAi('Promise 2', rand(1, 3)),
     esperaAi('Promise 3', rand(1, 3)),
     //esperaAi(1, 6500),
-    'Outro valor'
+    //'Outro valor'
 ];
 
-Promise.all(promises)
+Promise.race(promises)
     .then(function(valor){
         console.log(valor);  
     })
