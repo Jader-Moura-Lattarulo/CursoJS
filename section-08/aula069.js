@@ -37,3 +37,8 @@ async function executa() {
 
 executa();
     
+/**
+ * Pending: Está sendo executada, mas ainda não retornou o valor
+ * Fullfilled: Está resolvida
+ * Rejected: Rejeitada
+ */
