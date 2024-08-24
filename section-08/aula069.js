@@ -35,8 +35,7 @@ esperaAi('Fase 1', rand())
     })
     .then(fase => {
         console.log('Terminamos na fase:', fase)
-        
     })
     .catch(e => console.log(e));
-    
 
+    
