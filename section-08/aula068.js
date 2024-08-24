@@ -37,3 +37,21 @@ baixaPagina()
         console.log(dadosPagina);
     })
     .catch(e => console.log(e));
+
+    esperaAi('Fase 1', rand())
+    .then(valor => {
+        console.log(valor);
+        return esperaAi('Fase 2', rand());
+    })
+    .then(fase => {
+        console.log(fase);
+        return esperaAi('Fase 3', rand());
+    })
+    .then(fase => {
+        console.log(fase);
+        return fase;
+    })
+    .then(fase => {
+        console.log('Terminamos na fase:', fase)
+    })
+    .catch(e => console.log(e));
