@@ -16,9 +16,12 @@ const ler = require('./modules/ler');
 
 async function leArquivo(caminho) {
     const dados = await ler(caminho);
-    return dados;
+    renderizaDados(dados);
 }
 
-const dadosArquivo = leArquivo(caminhoArquivo)
-    .then(dados => console.log(dados)
-);
+function renderizaDados(dados) {
+    dados = JSON.parse(dados);
+    dados.forEach(val => console.log(val));
+}
+
+leArquivo(caminhoArquivo);
