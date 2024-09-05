@@ -11,7 +11,7 @@ app.get('/', (request, response) => {
     response.send(`
     <form action = "/" method = "POST">
         Nome: <input type="text" name="nome"></input>
-        <button>Enviar</button>
+        <button>Botão</button>
     </form>
     `);
 });
