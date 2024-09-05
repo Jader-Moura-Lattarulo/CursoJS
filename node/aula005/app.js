@@ -1,17 +1,17 @@
 const path = require('path');
-const caminhoArquivo = path.resolve(__dirname, 'teste.json');
+const caminhoArquivo = path.resolve(__dirname, 'post.json');
 const escreve = require('./modules/escrever');
 const ler = require('./modules/ler');
 
-const pessoas = [
-    {nome: 'Jader'},
+const post = [
+    {titulo: 'Testando para um blog'},
     {nome: 'Gabi'},
     {nome: 'Laura'},
     {nome: 'Marly'},
     {nome: 'Dalva'}
 ];
 
-const json = JSON.stringify(pessoas, '', 2);
+const json = JSON.stringify(post, '', 2);
 escreve(caminhoArquivo, json);
 
 async function leArquivo(caminho) {
